@@ -1,0 +1,15 @@
+PREFIX gf: <http://www.gra.fo/schema/untitled-ekg#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT distinct ?author_label ?paper_label ?area_label
+WHERE {
+    ?conf a gf:Conference .
+    ?conf gf:conference_related_to ?area .
+    ?area rdfs:label ?area_label .
+    filter( contains( lcase(str(?area)), "database")) .
+    ?proceed gf:belongs_to_conference ?conf .
+    ?paper gf:published_in_proceeding ?proceed .
+    ?paper rdfs:label ?paper_label .
+    ?author gf:writes ?paper .
+    ?author rdfs:label ?author_label
+}
+ORDER BY ?author_label ?area_label ?paper_label

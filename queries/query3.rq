@@ -1,0 +1,15 @@
+PREFIX gf: <http://www.gra.fo/schema/untitled-ekg#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+SELECT distinct ?property ?label WHERE {
+    {?property rdfs:domain gf:Conference}
+    union
+    {?property rdfs:domain gf:Journal}
+    union
+    {?child_class_jour rdfs:subClassOf* gf:Journal .
+        ?property rdfs:domain ?child_class_jour}
+    union
+    {?child_class_conf rdfs:subClassOf* gf:Conference .
+        ?property rdfs:domain ?child_class_conf}
+    ?property rdfs:label ?label
+}
