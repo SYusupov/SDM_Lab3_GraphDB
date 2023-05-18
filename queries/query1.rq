@@ -1,0 +1,7 @@
+PREFIX gf: <http://www.gra.fo/schema/untitled-ekg#>
+PREFIX rdfs: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rds: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT distinct ?label WHERE {
+    {?resource rdf:type gf:Author}
+    ?resource rdfs:label ?label
+}
