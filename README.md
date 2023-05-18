@@ -1,6 +1,7 @@
-Lab 3 of Semantic Data Management Course
+## Lab 3 of Semantic Data Management Course
 
-Setup:
+**Setup:**
+
 **1. Clone the repository **
   ```
   git clone https://github.com/SYusupov/SDM_Lab3_GraphDB.git
